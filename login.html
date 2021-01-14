@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 先引入 -->
+    <link rel="stylesheet" href="./lib/layui/css/layui.css">
+    <!-- 在引入自己的css -->
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+    <img id="logo" src="./img/logo.png" alt="">
+    <div class="login">
+        <div class="title">
+            大事件后台管理系统
+        </div>
+        <form action="layui-form">
+            <!-- 第一项:用户名 -->
+            <div class="layui-form-item">
+                <i class="layui-icon layui-icon-username"></i>
+                  <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            </div>
+            <!-- 第二项:密码 -->
+            <div class="layui-form-item">
+                <i class="layui-icon layui-icon-password"></i>
+                <input type="password" name="password" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+           </div>
+          
+            <!-- 第三项 登录 -->
+            <div class="layui-form-item">
+               
+                  <button class="layui-btn layui-bg-blue layui-btn-fluid" lay-submit lay-filter="formDemo">登录</button>
+
+            </div>
+            <!-- 第四项 去注册 -->
+            <div class="layui-form-item">
+                <a href="javascript:;">去注册账号</a>
+            </div>
+        </form>
+    </div>
+
+
+
+    <!-- 他们两个没有顺序关系,建议写在body结尾之前,引入js,因为当js执行的时候,页面元素肯定加载完了 -->
+    <script src="./lib/layui/layui.all.js"></script>
+    <script src="./lib/jquery.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+</html>

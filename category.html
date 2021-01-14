@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- 先引入 -->
+      <link rel="stylesheet" href="./lib/layui/css/layui.css">
+      <!-- 在引入自己的css -->
+      <link rel="stylesheet" href="./css/category.css">
+</head>
+<body>
+    
+    <div class="layui-card">
+        <div class="layui-card-header">
+        类别管理    
+      
+        <button type="button" class="layui-btn layui-btn-sm  layui-btn-normal">添加类别</button>
+        </div>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <colgroup>
+                  <col width="40%">
+                  <col width="40%">
+                  <col>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>分类名称</th>
+                    <th>分类别名</th>
+                    <th>操作</th>
+                  </tr> 
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+        </div>
+      </div>
+<!-- 模板引擎开始 -->
+     
+      <script type="text/html" id="tpl-list">
+           {{each data item}}
+           <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.alias}}</td>
+                <td>
+                    <button data-id={{item.id}} data-name={{item.name}} data-alias={{item.alias}} type="button" class="layui-btn  layui-btn-xs">编辑</button>
+                    <button data-id={{item.id}} type="button" class=" del layui-btn  layui-btn-xs  layui-btn-danger">删除</button>
+                </td>
+           </tr>
+           
+           {{/each}}
+         
+        </script>
+<!-- 模板引擎结束 -->
+<!-- 添加的模板开始 -->
+<script type="text/html" id="tpl-add">
+    <form id="add-form" class="layui-form" action="" style="margin: 25px 25px 0 0">
+        <!-- 第一项：类别名称 -->
+        <div class="layui-form-item">
+            <label class="layui-form-label">类别名称</label>
+            <div class="layui-input-block">
+              <input type="text" name="name" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!-- 第二项：类别别名 -->
+        <div class="layui-form-item">
+            <label class="layui-form-label">类别别名</label>
+            <div class="layui-input-block">
+              <input type="text" name="alias" required  lay-verify="required" placeholder="请输入别名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!-- 第三项：按钮 -->
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
+              <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</script>
+<!-- 添加的模板结束 -->
+
+<!-- 修改模板引擎开始 -->
+<script type="text/html" id="tpl-edit">
+    <form id="edit-form" class="layui-form" action="" style="margin: 25px 25px 0 0">
+        <!-- 第一项：类别名称 -->
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类名称</label>
+            <div class="layui-input-block">
+              <input type="text" name="name" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!-- 第二项：类别别名 -->
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类别名</label>
+            <div class="layui-input-block">
+              <input type="text" name="alias" required  lay-verify="required" placeholder="请输入别名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!-- 第三项：按钮 -->
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input type="hidden" name="id" >
+              <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+         
+            </div>
+        </div>
+    </form>
+</script>
+<!-- 修改模板引擎结束 -->
+
+
+     <!-- 他们两个没有顺序关系,建议写在body结尾之前,引入js,因为当js执行的时候,页面元素肯定加载完了 -->
+     <script src="./lib/layui/layui.all.js"></script>
+     <script src="./lib/jquery.js"></script>
+     <script src="./lib/template-web.js"></script>
+     <script src="./js/category.js"></script>
+    
+</body>
+</html>
